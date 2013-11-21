@@ -1,12 +1,12 @@
-<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.1.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_1_0.dtd">
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
 
 <service-builder package-path="com.rental.car">
-	<namespace>rental-car-services</namespace>
-	<entity name="Foo" uuid="true" local-service="true" remote-service="true">
+	<namespace>RC</namespace>
+	<entity name="Car" uuid="true" local-service="true" remote-service="true">
 
 		<!-- PK fields -->
 
-		<column name="fooId" type="long" primary="true" />
+		<column name="carId" type="long" primary="true" />
 
 		<!-- Group instance -->
 
@@ -20,29 +20,40 @@
 		<column name="createDate" type="Date" />
 		<column name="modifiedDate" type="Date" />
 
+		<!-- Status fields -->
+
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+		
 		<!-- Other fields -->
 
-		<column name="field1" type="String" />
-		<column name="field2" type="boolean" />
-		<column name="field3" type="int" />
-		<column name="field4" type="Date" />
-		<column name="field5" type="String" />
+		<column name="brand" type="String" />
+		<column name="model" type="String" />
+		<column name="manufacturingYear" type="Date" />
+		<column name="fuelType" type="String" />
+		<column name="passengers" type="int" />
 
 		<!-- Order -->
 
 		<order by="asc">
-			<order-column name="field1" />
+			<order-column name="brand" />
+			<order-column name="model" />
 		</order>
-
+		
 		<!-- Finder methods -->
 
-		<finder name="Field2" return-type="Collection">
-			<finder-column name="field2" />
+		<finder name="Brand" return-type="Collection">
+			<finder-column name="brand" />
+		</finder>
+		<finder name="Model" return-type="Collection">
+			<finder-column name="model" />
 		</finder>
 
 		<!-- References -->
 
+		<reference package-path="com.liferay.portal" entity="WorkflowInstanceLink" />
 		<reference package-path="com.liferay.portlet.asset" entity="AssetEntry" />
-		<reference package-path="com.liferay.portlet.asset" entity="AssetTag" />
 	</entity>
-</service-builder>
+</service-builder>s
