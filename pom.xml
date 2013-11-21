@@ -45,4 +45,9 @@
 		<module>rental-car-services-portlet</module>
 		<module>rental-car-services-portlet-service</module>
 	</modules>
+	<properties>
+		<liferay.maven.plugin.version>6.1.20</liferay.maven.plugin.version>
+		<liferay.dependencies.version>6.1.20</liferay.dependencies.version>
+		<liferay.version>6.1.20</liferay.version>
+	</properties>
 </project>
