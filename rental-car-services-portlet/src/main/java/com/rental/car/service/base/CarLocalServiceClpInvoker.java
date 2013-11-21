@@ -44,6 +44,8 @@ public class CarLocalServiceClpInvoker {
     private String[] _methodParameterTypes49;
     private String _methodName50;
     private String[] _methodParameterTypes50;
+    private String _methodName55;
+    private String[] _methodParameterTypes55;
 
     public CarLocalServiceClpInvoker() {
         _methodName0 = "addCar";
@@ -132,6 +134,14 @@ public class CarLocalServiceClpInvoker {
         _methodName50 = "setBeanIdentifier";
 
         _methodParameterTypes50 = new String[] { "java.lang.String" };
+
+        _methodName55 = "addCar";
+
+        _methodParameterTypes55 = new String[] {
+                "java.lang.String", "java.lang.String", "java.util.Date",
+                "java.lang.String", "int",
+                "com.liferay.portal.service.ServiceContext"
+            };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
@@ -237,6 +247,15 @@ public class CarLocalServiceClpInvoker {
         if (_methodName50.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes50, parameterTypes)) {
             CarLocalServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
+        }
+
+        if (_methodName55.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes55, parameterTypes)) {
+            return CarLocalServiceUtil.addCar((java.lang.String) arguments[0],
+                (java.lang.String) arguments[1], (java.util.Date) arguments[2],
+                (java.lang.String) arguments[3],
+                ((Integer) arguments[4]).intValue(),
+                (com.liferay.portal.service.ServiceContext) arguments[5]);
         }
 
         throw new UnsupportedOperationException();

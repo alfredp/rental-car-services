@@ -271,6 +271,17 @@ public class CarLocalServiceUtil {
         return getService().invokeMethod(name, parameterTypes, arguments);
     }
 
+    public static com.rental.car.model.Car addCar(java.lang.String brand,
+        java.lang.String model, java.util.Date manufacturingYear,
+        java.lang.String fuelType, int passengers,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService()
+                   .addCar(brand, model, manufacturingYear, fuelType,
+            passengers, serviceContext);
+    }
+
     public static void clearService() {
         _service = null;
     }

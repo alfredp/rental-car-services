@@ -43,6 +43,8 @@ public class CarLocalServiceClp implements CarLocalService {
     private String[] _methodParameterTypes17;
     private String _methodName18;
     private String[] _methodParameterTypes18;
+    private String _methodName20;
+    private String[] _methodParameterTypes20;
 
     public CarLocalServiceClp(InvokableLocalService invokableLocalService) {
         _invokableLocalService = invokableLocalService;
@@ -133,6 +135,14 @@ public class CarLocalServiceClp implements CarLocalService {
         _methodName18 = "setBeanIdentifier";
 
         _methodParameterTypes18 = new String[] { "java.lang.String" };
+
+        _methodName20 = "addCar";
+
+        _methodParameterTypes20 = new String[] {
+                "java.lang.String", "java.lang.String", "java.util.Date",
+                "java.lang.String", "int",
+                "com.liferay.portal.service.ServiceContext"
+            };
     }
 
     public com.rental.car.model.Car addCar(com.rental.car.model.Car car)
@@ -647,5 +657,51 @@ public class CarLocalServiceClp implements CarLocalService {
         java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable {
         throw new UnsupportedOperationException();
+    }
+
+    public com.rental.car.model.Car addCar(java.lang.String brand,
+        java.lang.String model, java.util.Date manufacturingYear,
+        java.lang.String fuelType, int passengers,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableLocalService.invokeMethod(_methodName20,
+                    _methodParameterTypes20,
+                    new Object[] {
+                        ClpSerializer.translateInput(brand),
+                        
+                    ClpSerializer.translateInput(model),
+                        
+                    ClpSerializer.translateInput(manufacturingYear),
+                        
+                    ClpSerializer.translateInput(fuelType),
+                        
+                    passengers,
+                        
+                    ClpSerializer.translateInput(serviceContext)
+                    });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+                throw (com.liferay.portal.kernel.exception.PortalException) t;
+            }
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
     }
 }

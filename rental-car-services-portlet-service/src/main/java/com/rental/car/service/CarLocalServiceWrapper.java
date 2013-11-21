@@ -262,6 +262,16 @@ public class CarLocalServiceWrapper implements CarLocalService,
         return _carLocalService.invokeMethod(name, parameterTypes, arguments);
     }
 
+    public com.rental.car.model.Car addCar(java.lang.String brand,
+        java.lang.String model, java.util.Date manufacturingYear,
+        java.lang.String fuelType, int passengers,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return _carLocalService.addCar(brand, model, manufacturingYear,
+            fuelType, passengers, serviceContext);
+    }
+
     /**
      * @deprecated Renamed to {@link #getWrappedService}
      */

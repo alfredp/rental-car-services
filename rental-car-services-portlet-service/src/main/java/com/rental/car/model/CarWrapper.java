@@ -643,7 +643,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
         return new CarWrapper((Car) _car.clone());
     }
 
-    public int compareTo(Car car) {
+    public int compareTo(com.rental.car.model.Car car) {
         return _car.compareTo(car);
     }
 
@@ -652,11 +652,11 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
         return _car.hashCode();
     }
 
-    public com.liferay.portal.model.CacheModel<Car> toCacheModel() {
+    public com.liferay.portal.model.CacheModel<com.rental.car.model.Car> toCacheModel() {
         return _car.toCacheModel();
     }
 
-    public Car toEscapedModel() {
+    public com.rental.car.model.Car toEscapedModel() {
         return new CarWrapper(_car.toEscapedModel());
     }
 

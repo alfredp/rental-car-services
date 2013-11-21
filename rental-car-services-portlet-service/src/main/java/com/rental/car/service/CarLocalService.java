@@ -240,4 +240,11 @@ public interface CarLocalService extends BaseLocalService, InvokableLocalService
     public java.lang.Object invokeMethod(java.lang.String name,
         java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable;
+
+    public com.rental.car.model.Car addCar(java.lang.String brand,
+        java.lang.String model, java.util.Date manufacturingYear,
+        java.lang.String fuelType, int passengers,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException;
 }
