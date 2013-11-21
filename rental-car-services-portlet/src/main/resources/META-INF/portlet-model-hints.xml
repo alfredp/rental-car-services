@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.rental.car.model.Car">
+		<field name="uuid" type="String" />
+		<field name="carId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="brand" type="String" />
+		<field name="model" type="String" />
+		<field name="manufacturingYear" type="Date" />
+		<field name="fuelType" type="String" />
+		<field name="passengers" type="int" />
+	</model>
+</model-hints>

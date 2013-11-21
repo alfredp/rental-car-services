@@ -1,0 +1,1 @@
+Liferay.Service.register("Liferay.Service.RC", "com.rental.car.service", "rental-car-services-portlet");
