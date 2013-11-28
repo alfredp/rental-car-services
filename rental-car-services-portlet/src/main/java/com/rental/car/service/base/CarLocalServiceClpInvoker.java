@@ -46,6 +46,8 @@ public class CarLocalServiceClpInvoker {
     private String[] _methodParameterTypes50;
     private String _methodName55;
     private String[] _methodParameterTypes55;
+    private String _methodName56;
+    private String[] _methodParameterTypes56;
 
     public CarLocalServiceClpInvoker() {
         _methodName0 = "addCar";
@@ -139,6 +141,14 @@ public class CarLocalServiceClpInvoker {
 
         _methodParameterTypes55 = new String[] {
                 "java.lang.String", "java.lang.String", "java.util.Date",
+                "java.lang.String", "int",
+                "com.liferay.portal.service.ServiceContext"
+            };
+
+        _methodName56 = "updateCar";
+
+        _methodParameterTypes56 = new String[] {
+                "long", "java.lang.String", "java.lang.String", "java.util.Date",
                 "java.lang.String", "int",
                 "com.liferay.portal.service.ServiceContext"
             };
@@ -256,6 +266,16 @@ public class CarLocalServiceClpInvoker {
                 (java.lang.String) arguments[3],
                 ((Integer) arguments[4]).intValue(),
                 (com.liferay.portal.service.ServiceContext) arguments[5]);
+        }
+
+        if (_methodName56.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes56, parameterTypes)) {
+            return CarLocalServiceUtil.updateCar(((Long) arguments[0]).longValue(),
+                (java.lang.String) arguments[1],
+                (java.lang.String) arguments[2], (java.util.Date) arguments[3],
+                (java.lang.String) arguments[4],
+                ((Integer) arguments[5]).intValue(),
+                (com.liferay.portal.service.ServiceContext) arguments[6]);
         }
 
         throw new UnsupportedOperationException();

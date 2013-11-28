@@ -272,6 +272,16 @@ public class CarLocalServiceWrapper implements CarLocalService,
             fuelType, passengers, serviceContext);
     }
 
+    public com.rental.car.model.Car updateCar(long carId,
+        java.lang.String brand, java.lang.String model,
+        java.util.Date manufacturingYear, java.lang.String fuelType,
+        int passengers, com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return _carLocalService.updateCar(carId, brand, model,
+            manufacturingYear, fuelType, passengers, serviceContext);
+    }
+
     /**
      * @deprecated Renamed to {@link #getWrappedService}
      */

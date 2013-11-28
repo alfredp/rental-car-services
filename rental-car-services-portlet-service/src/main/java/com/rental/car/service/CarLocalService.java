@@ -247,4 +247,11 @@ public interface CarLocalService extends BaseLocalService, InvokableLocalService
         com.liferay.portal.service.ServiceContext serviceContext)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException;
+
+    public com.rental.car.model.Car updateCar(long carId,
+        java.lang.String brand, java.lang.String model,
+        java.util.Date manufacturingYear, java.lang.String fuelType,
+        int passengers, com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException;
 }
