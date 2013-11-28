@@ -163,6 +163,31 @@ public class CarLocalServiceImplTest {
 
 		verify(userMock, userLocalServiceMock, counterLocalServiceMock, carPersistenceMock);
 		
+		PowerMock.verify(WorkflowHandlerRegistryUtil.class);
+		
+	}
+	
+	@Test
+	public void testUpdateCar() throws Exception {
+		
+		String brand = "brand";
+		String model = "model";
+		Date manufacturingYear = new Date();
+		String fuelType = "fuel";
+		int passengers = 3;
+		long carId = 3000l;
+		
+		ServiceContext serviceContext = new ServiceContext();
+		CarLocalServiceImpl service = new CarLocalServiceImpl();
+		
+		// Mock
+		
+		// Test
+		
+		Car car = service.updateCar(carId, brand, model, manufacturingYear, fuelType, passengers, serviceContext);
+
+		assertEquals(null, car); // FIXME!
+		
 	}
 	
 }
