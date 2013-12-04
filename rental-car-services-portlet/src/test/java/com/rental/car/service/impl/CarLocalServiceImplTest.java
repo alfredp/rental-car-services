@@ -32,16 +32,16 @@ import com.rental.car.service.persistence.CarPersistence;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest( { WorkflowHandlerRegistryUtil.class } )
 public class CarLocalServiceImplTest {
-	
+
 	@Rule
 	protected ExpectedException expectedEx = ExpectedException.none();
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testCarWithEmptyBrand() throws Exception {
-		
+
 		expectedEx.expect(IllegalArgumentException.class);
 		expectedEx.expectMessage("Parameter model cannot be null or empty!");
-		
+
 		String brand = StringPool.BLANK;
 		String model = "model";
 		Date manufacturingYear = new Date();
@@ -51,15 +51,14 @@ public class CarLocalServiceImplTest {
 		CarLocalService service = new CarLocalServiceImpl();
 
 		service.addCar(brand, model, manufacturingYear, fuelType, passengers, serviceContext);
-		
 	}
-	
+
 	@Test
 	public void testCarWithNullBrand() throws Exception {
-		
+
 		expectedEx.expect(IllegalArgumentException.class);
 		expectedEx.expectMessage("Parameter brand cannot be null or empty!");
-		
+
 		String brand = null;
 		String model = "model";
 		Date manufacturingYear = new Date();
@@ -69,15 +68,14 @@ public class CarLocalServiceImplTest {
 		CarLocalService service = new CarLocalServiceImpl();
 
 		service.addCar(brand, model, manufacturingYear, fuelType, passengers, serviceContext);
-		
 	}
-	
+
 	@Test
 	public void testCarWithNullManufacturingYear() throws Exception {
-		
+
 		expectedEx.expect(IllegalArgumentException.class);
 		expectedEx.expectMessage("Parameter manufacturingYear cannot be null or empty!");
-		
+
 		String brand = "brand";
 		String model = "model";
 		Date manufacturingYear = null;
@@ -87,24 +85,23 @@ public class CarLocalServiceImplTest {
 		CarLocalService service = new CarLocalServiceImpl();
 
 		service.addCar(brand, model, manufacturingYear, fuelType, passengers, serviceContext);
-		
 	}
-	
+
 	@Test
 	public void testAddCar() throws Exception {
-		
+
 		String brand = "brand";
 		String model = "model";
 		Date manufacturingYear = new Date();
 		String fuelType = "fuel";
 		int passengers = 2;
 		long carId = 1000l;
-		
+
 		ServiceContext serviceContext = new ServiceContext();
 		CarLocalServiceImpl service = new CarLocalServiceImpl();
-		
+
 		// Mock!
-		
+
 		User userMock = createNiceMock(User.class);
 		expect(userMock.getUserId()).andReturn(serviceContext.getUserId());
 		replay(userMock);
@@ -122,7 +119,7 @@ public class CarLocalServiceImplTest {
 		replay(counterLocalServiceMock);
 
 		service.setCounterLocalService(counterLocalServiceMock);
-		
+
 		Car carMock = new CarClp();
 		carMock.setCarId(carId);
 		carMock.setBrand(brand);
@@ -130,14 +127,14 @@ public class CarLocalServiceImplTest {
 		carMock.setManufacturingYear(manufacturingYear);
 		carMock.setFuelType(fuelType);
 		carMock.setPassengers(passengers);
-		
+
 		CarPersistence carPersistenceMock = createNiceMock(CarPersistence.class);
 
 		expect(carPersistenceMock.create(carId)).andReturn(carMock);
 		replay(carPersistenceMock);
-		
+
 		service.setCarPersistence(carPersistenceMock);
-		
+
 		PowerMock.mockStatic(WorkflowHandlerRegistryUtil.class);
 
 		WorkflowHandlerRegistryUtil.startWorkflowInstance(
@@ -146,9 +143,9 @@ public class CarLocalServiceImplTest {
 			carMock.getPrimaryKey(), carMock, serviceContext);
 
 		PowerMock.replay(WorkflowHandlerRegistryUtil.class);
-		
+
 		// Test
-		
+
 		Car car = service.addCar(brand, model, manufacturingYear, fuelType, passengers, serviceContext);
 
 		assertNotNull(car);
@@ -158,36 +155,35 @@ public class CarLocalServiceImplTest {
 		assertEquals(manufacturingYear, car.getManufacturingYear());
 		assertEquals(fuelType, car.getFuelType());
 		assertEquals(passengers, car.getPassengers());
-		
+
 		assertEquals(WorkflowConstants.STATUS_DRAFT, car.getStatus());
 
 		verify(userMock, userLocalServiceMock, counterLocalServiceMock, carPersistenceMock);
-		
+
 		PowerMock.verify(WorkflowHandlerRegistryUtil.class);
-		
+
 	}
-	
+
 	@Test
 	public void testUpdateCar() throws Exception {
-		
+
 		String brand = "brand";
 		String model = "model";
 		Date manufacturingYear = new Date();
 		String fuelType = "fuel";
 		int passengers = 3;
 		long carId = 3000l;
-		
+
 		ServiceContext serviceContext = new ServiceContext();
 		CarLocalServiceImpl service = new CarLocalServiceImpl();
-		
+
 		// Mock
-		
+
 		// Test
-		
+
 		Car car = service.updateCar(carId, brand, model, manufacturingYear, fuelType, passengers, serviceContext);
 
 		assertEquals(null, car); // FIXME!
-		
 	}
-	
+
 }

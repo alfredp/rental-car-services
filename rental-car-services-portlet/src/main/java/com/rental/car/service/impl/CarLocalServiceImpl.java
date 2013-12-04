@@ -36,25 +36,25 @@ public class CarLocalServiceImpl extends CarLocalServiceBaseImpl {
 			final int passengers,
 			final ServiceContext serviceContext)
 			throws PortalException, SystemException {
-		
+
 		validateCar(brand, model, manufacturingYear, fuelType, passengers);
-		
+
 		final User user = userLocalService.getUser(serviceContext.getUserId());
 		final long carId = counterLocalService.increment(Car.class.getName());
 		final Car car = carPersistence.create(carId);
-		
+
 		car.setBrand(brand);
 		car.setModel(model);
 		car.setManufacturingYear(manufacturingYear);
 		car.setFuelType(fuelType);
 		car.setPassengers(passengers);
-		
+
 		car.setStatus(WorkflowConstants.STATUS_DRAFT);
 		car.setStatusByUserId(user.getUserId());
 		car.setStatusDate(new Date());
-		
+
 		carPersistence.update(car, false);
-		
+
 		WorkflowHandlerRegistryUtil
 			.startWorkflowInstance(
 				car.getCompanyId(),
@@ -64,11 +64,11 @@ public class CarLocalServiceImpl extends CarLocalServiceBaseImpl {
 				car.getPrimaryKey(),
 				car,
 				serviceContext);
-		
+
 		return car;
-		
+
 	}
-	
+
 	public Car updateCar(
 			final long carId,
 			final String brand, 
@@ -78,26 +78,26 @@ public class CarLocalServiceImpl extends CarLocalServiceBaseImpl {
 			final int passengers,
 			final ServiceContext serviceContext)
 			throws PortalException, SystemException {
-		
+
 		return null;
-		
+
 //		validateCar(brand, model, manufacturingYear, fuelType, passengers);
-//		
+//
 //		final User user = userLocalService.getUser(serviceContext.getUserId());
 //		final Car car = carLocalService.getCar(carId);
-//		
+//
 //		car.setBrand(brand);
 //		car.setModel(model);
 //		car.setManufacturingYear(manufacturingYear);
 //		car.setFuelType(fuelType);
 //		car.setPassengers(passengers);
-//		
+//
 //		car.setStatus(WorkflowConstants.STATUS_DRAFT);
 //		car.setStatusByUserId(user.getUserId());
 //		car.setStatusDate(new Date());
-//		
+//
 //		carPersistence.update(car, false);
-//		
+//
 //		WorkflowHandlerRegistryUtil
 //			.startWorkflowInstance(
 //				car.getCompanyId(),
@@ -107,9 +107,8 @@ public class CarLocalServiceImpl extends CarLocalServiceBaseImpl {
 //				car.getPrimaryKey(),
 //				car,
 //				serviceContext);
-//		
+//
 //		return car;
-		
 	}
 
 	protected void validateCar(
@@ -118,30 +117,30 @@ public class CarLocalServiceImpl extends CarLocalServiceBaseImpl {
 			final Date manufacturingYear,
 			final String fuelType, 
 			final int passengers) {
-		
+
 		if (Validator.isNull(brand)) {
 			throw new IllegalArgumentException("Parameter brand cannot be null or empty!");
 		}
-		
+
 		if (Validator.isNull(model)) {
 			throw new IllegalArgumentException("Parameter model cannot be null or empty!");
 		}
-		
+
 		if (Validator.isNull(manufacturingYear)) {
 			throw new IllegalArgumentException("Parameter manufacturingYear cannot be null or empty!");
 		}
-		
+
 		if (Validator.isNull(fuelType)) {
 			throw new IllegalArgumentException("Parameter fuelType cannot be null or empty!");
 		}
-		
+
 		if (Validator.isNull(passengers)) {
 			throw new IllegalArgumentException("Parameter passengers cannot be null or empty!");
 		}
 		else if (passengers < 0) {
 			throw new IllegalArgumentException("Parameter passengers cannot be negative!");
 		}
-		
+
 	}
 
 }
