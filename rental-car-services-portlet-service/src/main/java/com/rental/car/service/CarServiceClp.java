@@ -2,7 +2,10 @@ package com.rental.car.service;
 
 import com.liferay.portal.service.InvokableService;
 
-
+/**
+ * @author Brian Wing Shun Chan
+ * @generated
+ */
 public class CarServiceClp implements CarService {
     private InvokableService _invokableService;
     private String _methodName0;
@@ -22,6 +25,7 @@ public class CarServiceClp implements CarService {
         _methodParameterTypes1 = new String[] { "java.lang.String" };
     }
 
+    @Override
     public java.lang.String getBeanIdentifier() {
         Object returnObj = null;
 
@@ -42,6 +46,7 @@ public class CarServiceClp implements CarService {
         return (java.lang.String) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public void setBeanIdentifier(java.lang.String beanIdentifier) {
         try {
             _invokableService.invokeMethod(_methodName1,
@@ -59,6 +64,7 @@ public class CarServiceClp implements CarService {
         }
     }
 
+    @Override
     public java.lang.Object invokeMethod(java.lang.String name,
         java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable {

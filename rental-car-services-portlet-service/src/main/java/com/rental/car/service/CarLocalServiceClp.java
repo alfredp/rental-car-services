@@ -2,7 +2,10 @@ package com.rental.car.service;
 
 import com.liferay.portal.service.InvokableLocalService;
 
-
+/**
+ * @author Brian Wing Shun Chan
+ * @generated
+ */
 public class CarLocalServiceClp implements CarLocalService {
     private InvokableLocalService _invokableLocalService;
     private String _methodName0;
@@ -43,10 +46,16 @@ public class CarLocalServiceClp implements CarLocalService {
     private String[] _methodParameterTypes17;
     private String _methodName18;
     private String[] _methodParameterTypes18;
+    private String _methodName19;
+    private String[] _methodParameterTypes19;
     private String _methodName20;
     private String[] _methodParameterTypes20;
     private String _methodName21;
     private String[] _methodParameterTypes21;
+    private String _methodName23;
+    private String[] _methodParameterTypes23;
+    private String _methodName24;
+    private String[] _methodParameterTypes24;
 
     public CarLocalServiceClp(InvokableLocalService invokableLocalService) {
         _invokableLocalService = invokableLocalService;
@@ -96,65 +105,79 @@ public class CarLocalServiceClp implements CarLocalService {
                 "com.liferay.portal.kernel.dao.orm.DynamicQuery"
             };
 
-        _methodName9 = "fetchCar";
+        _methodName9 = "dynamicQueryCount";
 
-        _methodParameterTypes9 = new String[] { "long" };
+        _methodParameterTypes9 = new String[] {
+                "com.liferay.portal.kernel.dao.orm.DynamicQuery",
+                "com.liferay.portal.kernel.dao.orm.Projection"
+            };
 
-        _methodName10 = "getCar";
+        _methodName10 = "fetchCar";
 
         _methodParameterTypes10 = new String[] { "long" };
 
-        _methodName11 = "getPersistedModel";
+        _methodName11 = "fetchCarByUuidAndCompanyId";
 
-        _methodParameterTypes11 = new String[] { "java.io.Serializable" };
+        _methodParameterTypes11 = new String[] { "java.lang.String", "long" };
 
-        _methodName12 = "getCarByUuidAndGroupId";
+        _methodName12 = "fetchCarByUuidAndGroupId";
 
         _methodParameterTypes12 = new String[] { "java.lang.String", "long" };
 
-        _methodName13 = "getCars";
+        _methodName13 = "getCar";
 
-        _methodParameterTypes13 = new String[] { "int", "int" };
+        _methodParameterTypes13 = new String[] { "long" };
 
-        _methodName14 = "getCarsCount";
+        _methodName14 = "getPersistedModel";
 
-        _methodParameterTypes14 = new String[] {  };
+        _methodParameterTypes14 = new String[] { "java.io.Serializable" };
 
-        _methodName15 = "updateCar";
+        _methodName15 = "getCarByUuidAndCompanyId";
 
-        _methodParameterTypes15 = new String[] { "com.rental.car.model.Car" };
+        _methodParameterTypes15 = new String[] { "java.lang.String", "long" };
 
-        _methodName16 = "updateCar";
+        _methodName16 = "getCarByUuidAndGroupId";
 
-        _methodParameterTypes16 = new String[] {
-                "com.rental.car.model.Car", "boolean"
-            };
+        _methodParameterTypes16 = new String[] { "java.lang.String", "long" };
 
-        _methodName17 = "getBeanIdentifier";
+        _methodName17 = "getCars";
 
-        _methodParameterTypes17 = new String[] {  };
+        _methodParameterTypes17 = new String[] { "int", "int" };
 
-        _methodName18 = "setBeanIdentifier";
+        _methodName18 = "getCarsCount";
 
-        _methodParameterTypes18 = new String[] { "java.lang.String" };
+        _methodParameterTypes18 = new String[] {  };
 
-        _methodName20 = "addCar";
+        _methodName19 = "updateCar";
 
-        _methodParameterTypes20 = new String[] {
+        _methodParameterTypes19 = new String[] { "com.rental.car.model.Car" };
+
+        _methodName20 = "getBeanIdentifier";
+
+        _methodParameterTypes20 = new String[] {  };
+
+        _methodName21 = "setBeanIdentifier";
+
+        _methodParameterTypes21 = new String[] { "java.lang.String" };
+
+        _methodName23 = "addCar";
+
+        _methodParameterTypes23 = new String[] {
                 "java.lang.String", "java.lang.String", "java.util.Date",
                 "java.lang.String", "int",
                 "com.liferay.portal.service.ServiceContext"
             };
 
-        _methodName21 = "updateCar";
+        _methodName24 = "updateCar";
 
-        _methodParameterTypes21 = new String[] {
+        _methodParameterTypes24 = new String[] {
                 "long", "java.lang.String", "java.lang.String", "java.util.Date",
                 "java.lang.String", "int",
                 "com.liferay.portal.service.ServiceContext"
             };
     }
 
+    @Override
     public com.rental.car.model.Car addCar(com.rental.car.model.Car car)
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
@@ -181,6 +204,7 @@ public class CarLocalServiceClp implements CarLocalService {
         return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public com.rental.car.model.Car createCar(long carId) {
         Object returnObj = null;
 
@@ -201,6 +225,7 @@ public class CarLocalServiceClp implements CarLocalService {
         return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public com.rental.car.model.Car deleteCar(long carId)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
@@ -231,6 +256,7 @@ public class CarLocalServiceClp implements CarLocalService {
         return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public com.rental.car.model.Car deleteCar(com.rental.car.model.Car car)
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
@@ -257,6 +283,7 @@ public class CarLocalServiceClp implements CarLocalService {
         return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery() {
         Object returnObj = null;
 
@@ -277,6 +304,7 @@ public class CarLocalServiceClp implements CarLocalService {
         return (com.liferay.portal.kernel.dao.orm.DynamicQuery) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     @SuppressWarnings("rawtypes")
     public java.util.List dynamicQuery(
         com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
@@ -305,6 +333,7 @@ public class CarLocalServiceClp implements CarLocalService {
         return (java.util.List) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     @SuppressWarnings("rawtypes")
     public java.util.List dynamicQuery(
         com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
@@ -339,6 +368,7 @@ public class CarLocalServiceClp implements CarLocalService {
         return (java.util.List) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     @SuppressWarnings("rawtypes")
     public java.util.List dynamicQuery(
         com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
@@ -377,6 +407,7 @@ public class CarLocalServiceClp implements CarLocalService {
         return (java.util.List) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public long dynamicQueryCount(
         com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
         throws com.liferay.portal.kernel.exception.SystemException {
@@ -404,13 +435,47 @@ public class CarLocalServiceClp implements CarLocalService {
         return ((Long) returnObj).longValue();
     }
 
-    public com.rental.car.model.Car fetchCar(long carId)
+    @Override
+    public long dynamicQueryCount(
+        com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
+        com.liferay.portal.kernel.dao.orm.Projection projection)
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
             returnObj = _invokableLocalService.invokeMethod(_methodName9,
-                    _methodParameterTypes9, new Object[] { carId });
+                    _methodParameterTypes9,
+                    new Object[] {
+                        ClpSerializer.translateInput(dynamicQuery),
+                        
+                    ClpSerializer.translateInput(projection)
+                    });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return ((Long) returnObj).longValue();
+    }
+
+    @Override
+    public com.rental.car.model.Car fetchCar(long carId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableLocalService.invokeMethod(_methodName10,
+                    _methodParameterTypes10, new Object[] { carId });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -429,14 +494,71 @@ public class CarLocalServiceClp implements CarLocalService {
         return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
+    public com.rental.car.model.Car fetchCarByUuidAndCompanyId(
+        java.lang.String uuid, long companyId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableLocalService.invokeMethod(_methodName11,
+                    _methodParameterTypes11,
+                    new Object[] { ClpSerializer.translateInput(uuid), companyId });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
+    }
+
+    @Override
+    public com.rental.car.model.Car fetchCarByUuidAndGroupId(
+        java.lang.String uuid, long groupId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableLocalService.invokeMethod(_methodName12,
+                    _methodParameterTypes12,
+                    new Object[] { ClpSerializer.translateInput(uuid), groupId });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
+    }
+
+    @Override
     public com.rental.car.model.Car getCar(long carId)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName10,
-                    _methodParameterTypes10, new Object[] { carId });
+            returnObj = _invokableLocalService.invokeMethod(_methodName13,
+                    _methodParameterTypes13, new Object[] { carId });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -459,6 +581,7 @@ public class CarLocalServiceClp implements CarLocalService {
         return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public com.liferay.portal.model.PersistedModel getPersistedModel(
         java.io.Serializable primaryKeyObj)
         throws com.liferay.portal.kernel.exception.PortalException,
@@ -466,8 +589,8 @@ public class CarLocalServiceClp implements CarLocalService {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName11,
-                    _methodParameterTypes11,
+            returnObj = _invokableLocalService.invokeMethod(_methodName14,
+                    _methodParameterTypes14,
                     new Object[] { ClpSerializer.translateInput(primaryKeyObj) });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
@@ -491,6 +614,40 @@ public class CarLocalServiceClp implements CarLocalService {
         return (com.liferay.portal.model.PersistedModel) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
+    public com.rental.car.model.Car getCarByUuidAndCompanyId(
+        java.lang.String uuid, long companyId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableLocalService.invokeMethod(_methodName15,
+                    _methodParameterTypes15,
+                    new Object[] { ClpSerializer.translateInput(uuid), companyId });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+                throw (com.liferay.portal.kernel.exception.PortalException) t;
+            }
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
+    }
+
+    @Override
     public com.rental.car.model.Car getCarByUuidAndGroupId(
         java.lang.String uuid, long groupId)
         throws com.liferay.portal.kernel.exception.PortalException,
@@ -498,8 +655,8 @@ public class CarLocalServiceClp implements CarLocalService {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName12,
-                    _methodParameterTypes12,
+            returnObj = _invokableLocalService.invokeMethod(_methodName16,
+                    _methodParameterTypes16,
                     new Object[] { ClpSerializer.translateInput(uuid), groupId });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
@@ -523,13 +680,14 @@ public class CarLocalServiceClp implements CarLocalService {
         return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public java.util.List<com.rental.car.model.Car> getCars(int start, int end)
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName13,
-                    _methodParameterTypes13, new Object[] { start, end });
+            returnObj = _invokableLocalService.invokeMethod(_methodName17,
+                    _methodParameterTypes17, new Object[] { start, end });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -548,13 +706,14 @@ public class CarLocalServiceClp implements CarLocalService {
         return (java.util.List<com.rental.car.model.Car>) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public int getCarsCount()
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName14,
-                    _methodParameterTypes14, new Object[] {  });
+            returnObj = _invokableLocalService.invokeMethod(_methodName18,
+                    _methodParameterTypes18, new Object[] {  });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -573,13 +732,14 @@ public class CarLocalServiceClp implements CarLocalService {
         return ((Integer) returnObj).intValue();
     }
 
+    @Override
     public com.rental.car.model.Car updateCar(com.rental.car.model.Car car)
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName15,
-                    _methodParameterTypes15,
+            returnObj = _invokableLocalService.invokeMethod(_methodName19,
+                    _methodParameterTypes19,
                     new Object[] { ClpSerializer.translateInput(car) });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
@@ -599,39 +759,13 @@ public class CarLocalServiceClp implements CarLocalService {
         return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
     }
 
-    public com.rental.car.model.Car updateCar(com.rental.car.model.Car car,
-        boolean merge)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        Object returnObj = null;
-
-        try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName16,
-                    _methodParameterTypes16,
-                    new Object[] { ClpSerializer.translateInput(car), merge });
-        } catch (Throwable t) {
-            t = ClpSerializer.translateThrowable(t);
-
-            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-                throw (com.liferay.portal.kernel.exception.SystemException) t;
-            }
-
-            if (t instanceof RuntimeException) {
-                throw (RuntimeException) t;
-            } else {
-                throw new RuntimeException(t.getClass().getName() +
-                    " is not a valid exception");
-            }
-        }
-
-        return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
-    }
-
+    @Override
     public java.lang.String getBeanIdentifier() {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName17,
-                    _methodParameterTypes17, new Object[] {  });
+            returnObj = _invokableLocalService.invokeMethod(_methodName20,
+                    _methodParameterTypes20, new Object[] {  });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -646,10 +780,11 @@ public class CarLocalServiceClp implements CarLocalService {
         return (java.lang.String) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public void setBeanIdentifier(java.lang.String beanIdentifier) {
         try {
-            _invokableLocalService.invokeMethod(_methodName18,
-                _methodParameterTypes18,
+            _invokableLocalService.invokeMethod(_methodName21,
+                _methodParameterTypes21,
                 new Object[] { ClpSerializer.translateInput(beanIdentifier) });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
@@ -663,12 +798,14 @@ public class CarLocalServiceClp implements CarLocalService {
         }
     }
 
+    @Override
     public java.lang.Object invokeMethod(java.lang.String name,
         java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable {
         throw new UnsupportedOperationException();
     }
 
+    @Override
     public com.rental.car.model.Car addCar(java.lang.String brand,
         java.lang.String model, java.util.Date manufacturingYear,
         java.lang.String fuelType, int passengers,
@@ -678,8 +815,8 @@ public class CarLocalServiceClp implements CarLocalService {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName20,
-                    _methodParameterTypes20,
+            returnObj = _invokableLocalService.invokeMethod(_methodName23,
+                    _methodParameterTypes23,
                     new Object[] {
                         ClpSerializer.translateInput(brand),
                         
@@ -715,6 +852,7 @@ public class CarLocalServiceClp implements CarLocalService {
         return (com.rental.car.model.Car) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public com.rental.car.model.Car updateCar(long carId,
         java.lang.String brand, java.lang.String model,
         java.util.Date manufacturingYear, java.lang.String fuelType,
@@ -724,8 +862,8 @@ public class CarLocalServiceClp implements CarLocalService {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName21,
-                    _methodParameterTypes21,
+            returnObj = _invokableLocalService.invokeMethod(_methodName24,
+                    _methodParameterTypes24,
                     new Object[] {
                         carId,
                         

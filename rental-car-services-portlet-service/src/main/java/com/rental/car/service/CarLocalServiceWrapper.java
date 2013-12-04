@@ -3,12 +3,10 @@ package com.rental.car.service;
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
- * <p>
- * This class is a wrapper for {@link CarLocalService}.
- * </p>
+ * Provides a wrapper for {@link CarLocalService}.
  *
- * @author    Brian Wing Shun Chan
- * @see       CarLocalService
+ * @author Brian Wing Shun Chan
+ * @see CarLocalService
  * @generated
  */
 public class CarLocalServiceWrapper implements CarLocalService,
@@ -26,6 +24,7 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * @return the car that was added
     * @throws SystemException if a system exception occurred
     */
+    @Override
     public com.rental.car.model.Car addCar(com.rental.car.model.Car car)
         throws com.liferay.portal.kernel.exception.SystemException {
         return _carLocalService.addCar(car);
@@ -37,6 +36,7 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * @param carId the primary key for the new car
     * @return the new car
     */
+    @Override
     public com.rental.car.model.Car createCar(long carId) {
         return _carLocalService.createCar(carId);
     }
@@ -49,6 +49,7 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * @throws PortalException if a car with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
+    @Override
     public com.rental.car.model.Car deleteCar(long carId)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
@@ -62,11 +63,13 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * @return the car that was removed
     * @throws SystemException if a system exception occurred
     */
+    @Override
     public com.rental.car.model.Car deleteCar(com.rental.car.model.Car car)
         throws com.liferay.portal.kernel.exception.SystemException {
         return _carLocalService.deleteCar(car);
     }
 
+    @Override
     public com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery() {
         return _carLocalService.dynamicQuery();
     }
@@ -78,6 +81,7 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * @return the matching rows
     * @throws SystemException if a system exception occurred
     */
+    @Override
     @SuppressWarnings("rawtypes")
     public java.util.List dynamicQuery(
         com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
@@ -89,7 +93,7 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * Performs a dynamic query on the database and returns a range of the matching rows.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rental.car.model.impl.CarModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param dynamicQuery the dynamic query
@@ -98,6 +102,7 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * @return the range of matching rows
     * @throws SystemException if a system exception occurred
     */
+    @Override
     @SuppressWarnings("rawtypes")
     public java.util.List dynamicQuery(
         com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
@@ -109,7 +114,7 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * Performs a dynamic query on the database and returns an ordered range of the matching rows.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rental.car.model.impl.CarModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param dynamicQuery the dynamic query
@@ -119,6 +124,7 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * @return the ordered range of matching rows
     * @throws SystemException if a system exception occurred
     */
+    @Override
     @SuppressWarnings("rawtypes")
     public java.util.List dynamicQuery(
         com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
@@ -136,15 +142,63 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * @return the number of rows that match the dynamic query
     * @throws SystemException if a system exception occurred
     */
+    @Override
     public long dynamicQueryCount(
         com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
         throws com.liferay.portal.kernel.exception.SystemException {
         return _carLocalService.dynamicQueryCount(dynamicQuery);
     }
 
+    /**
+    * Returns the number of rows that match the dynamic query.
+    *
+    * @param dynamicQuery the dynamic query
+    * @param projection the projection to apply to the query
+    * @return the number of rows that match the dynamic query
+    * @throws SystemException if a system exception occurred
+    */
+    @Override
+    public long dynamicQueryCount(
+        com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
+        com.liferay.portal.kernel.dao.orm.Projection projection)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return _carLocalService.dynamicQueryCount(dynamicQuery, projection);
+    }
+
+    @Override
     public com.rental.car.model.Car fetchCar(long carId)
         throws com.liferay.portal.kernel.exception.SystemException {
         return _carLocalService.fetchCar(carId);
+    }
+
+    /**
+    * Returns the car with the matching UUID and company.
+    *
+    * @param uuid the car's UUID
+    * @param companyId the primary key of the company
+    * @return the matching car, or <code>null</code> if a matching car could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    @Override
+    public com.rental.car.model.Car fetchCarByUuidAndCompanyId(
+        java.lang.String uuid, long companyId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return _carLocalService.fetchCarByUuidAndCompanyId(uuid, companyId);
+    }
+
+    /**
+    * Returns the car matching the UUID and group.
+    *
+    * @param uuid the car's UUID
+    * @param groupId the primary key of the group
+    * @return the matching car, or <code>null</code> if a matching car could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    @Override
+    public com.rental.car.model.Car fetchCarByUuidAndGroupId(
+        java.lang.String uuid, long groupId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return _carLocalService.fetchCarByUuidAndGroupId(uuid, groupId);
     }
 
     /**
@@ -155,12 +209,14 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * @throws PortalException if a car with the primary key could not be found
     * @throws SystemException if a system exception occurred
     */
+    @Override
     public com.rental.car.model.Car getCar(long carId)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         return _carLocalService.getCar(carId);
     }
 
+    @Override
     public com.liferay.portal.model.PersistedModel getPersistedModel(
         java.io.Serializable primaryKeyObj)
         throws com.liferay.portal.kernel.exception.PortalException,
@@ -169,14 +225,32 @@ public class CarLocalServiceWrapper implements CarLocalService,
     }
 
     /**
-    * Returns the car with the UUID in the group.
+    * Returns the car with the matching UUID and company.
     *
-    * @param uuid the UUID of car
-    * @param groupId the group id of the car
-    * @return the car
-    * @throws PortalException if a car with the UUID in the group could not be found
+    * @param uuid the car's UUID
+    * @param companyId the primary key of the company
+    * @return the matching car
+    * @throws PortalException if a matching car could not be found
     * @throws SystemException if a system exception occurred
     */
+    @Override
+    public com.rental.car.model.Car getCarByUuidAndCompanyId(
+        java.lang.String uuid, long companyId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return _carLocalService.getCarByUuidAndCompanyId(uuid, companyId);
+    }
+
+    /**
+    * Returns the car matching the UUID and group.
+    *
+    * @param uuid the car's UUID
+    * @param groupId the primary key of the group
+    * @return the matching car
+    * @throws PortalException if a matching car could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    @Override
     public com.rental.car.model.Car getCarByUuidAndGroupId(
         java.lang.String uuid, long groupId)
         throws com.liferay.portal.kernel.exception.PortalException,
@@ -188,7 +262,7 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * Returns a range of all the cars.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rental.car.model.impl.CarModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param start the lower bound of the range of cars
@@ -196,6 +270,7 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * @return the range of cars
     * @throws SystemException if a system exception occurred
     */
+    @Override
     public java.util.List<com.rental.car.model.Car> getCars(int start, int end)
         throws com.liferay.portal.kernel.exception.SystemException {
         return _carLocalService.getCars(start, end);
@@ -207,6 +282,7 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * @return the number of cars
     * @throws SystemException if a system exception occurred
     */
+    @Override
     public int getCarsCount()
         throws com.liferay.portal.kernel.exception.SystemException {
         return _carLocalService.getCarsCount();
@@ -219,23 +295,10 @@ public class CarLocalServiceWrapper implements CarLocalService,
     * @return the car that was updated
     * @throws SystemException if a system exception occurred
     */
+    @Override
     public com.rental.car.model.Car updateCar(com.rental.car.model.Car car)
         throws com.liferay.portal.kernel.exception.SystemException {
         return _carLocalService.updateCar(car);
-    }
-
-    /**
-    * Updates the car in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
-    *
-    * @param car the car
-    * @param merge whether to merge the car with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
-    * @return the car that was updated
-    * @throws SystemException if a system exception occurred
-    */
-    public com.rental.car.model.Car updateCar(com.rental.car.model.Car car,
-        boolean merge)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return _carLocalService.updateCar(car, merge);
     }
 
     /**
@@ -243,6 +306,7 @@ public class CarLocalServiceWrapper implements CarLocalService,
     *
     * @return the Spring bean ID for this bean
     */
+    @Override
     public java.lang.String getBeanIdentifier() {
         return _carLocalService.getBeanIdentifier();
     }
@@ -252,16 +316,19 @@ public class CarLocalServiceWrapper implements CarLocalService,
     *
     * @param beanIdentifier the Spring bean ID for this bean
     */
+    @Override
     public void setBeanIdentifier(java.lang.String beanIdentifier) {
         _carLocalService.setBeanIdentifier(beanIdentifier);
     }
 
+    @Override
     public java.lang.Object invokeMethod(java.lang.String name,
         java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable {
         return _carLocalService.invokeMethod(name, parameterTypes, arguments);
     }
 
+    @Override
     public com.rental.car.model.Car addCar(java.lang.String brand,
         java.lang.String model, java.util.Date manufacturingYear,
         java.lang.String fuelType, int passengers,
@@ -272,6 +339,7 @@ public class CarLocalServiceWrapper implements CarLocalService,
             fuelType, passengers, serviceContext);
     }
 
+    @Override
     public com.rental.car.model.Car updateCar(long carId,
         java.lang.String brand, java.lang.String model,
         java.util.Date manufacturingYear, java.lang.String fuelType,
@@ -283,23 +351,25 @@ public class CarLocalServiceWrapper implements CarLocalService,
     }
 
     /**
-     * @deprecated Renamed to {@link #getWrappedService}
+     * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
      */
     public CarLocalService getWrappedCarLocalService() {
         return _carLocalService;
     }
 
     /**
-     * @deprecated Renamed to {@link #setWrappedService}
+     * @deprecated As of 6.1.0, replaced by {@link #setWrappedService}
      */
     public void setWrappedCarLocalService(CarLocalService carLocalService) {
         _carLocalService = carLocalService;
     }
 
+    @Override
     public CarLocalService getWrappedService() {
         return _carLocalService;
     }
 
+    @Override
     public void setWrappedService(CarLocalService carLocalService) {
         _carLocalService = carLocalService;
     }

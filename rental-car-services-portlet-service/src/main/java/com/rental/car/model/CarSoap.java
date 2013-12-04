@@ -9,8 +9,8 @@ import java.util.List;
 /**
  * This class is used by SOAP remote services, specifically {@link com.rental.car.service.http.CarServiceSoap}.
  *
- * @author    Brian Wing Shun Chan
- * @see       com.rental.car.service.http.CarServiceSoap
+ * @author Brian Wing Shun Chan
+ * @see com.rental.car.service.http.CarServiceSoap
  * @generated
  */
 public class CarSoap implements Serializable {

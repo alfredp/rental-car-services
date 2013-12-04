@@ -23,6 +23,7 @@ public abstract class CarBaseImpl extends CarModelImpl implements Car {
      *
      * Never modify or reference this class directly. All methods that expect a car model instance should use the {@link Car} interface instead.
      */
+    @Override
     public void persist() throws SystemException {
         if (this.isNew()) {
             CarLocalServiceUtil.addCar(this);

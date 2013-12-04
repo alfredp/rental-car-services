@@ -6,7 +6,10 @@ import com.liferay.portal.model.CacheModel;
 
 import com.rental.car.model.Car;
 
-import java.io.Serializable;
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 
 import java.util.Date;
 
@@ -17,7 +20,7 @@ import java.util.Date;
  * @see Car
  * @generated
  */
-public class CarCacheModel implements CacheModel<Car>, Serializable {
+public class CarCacheModel implements CacheModel<Car>, Externalizable {
     public String uuid;
     public long carId;
     public long groupId;
@@ -79,6 +82,7 @@ public class CarCacheModel implements CacheModel<Car>, Serializable {
         return sb.toString();
     }
 
+    @Override
     public Car toEntityModel() {
         CarImpl carImpl = new CarImpl();
 
@@ -155,5 +159,82 @@ public class CarCacheModel implements CacheModel<Car>, Serializable {
         carImpl.resetOriginalValues();
 
         return carImpl;
+    }
+
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        carId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        userName = objectInput.readUTF();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        status = objectInput.readInt();
+        statusByUserId = objectInput.readLong();
+        statusByUserName = objectInput.readUTF();
+        statusDate = objectInput.readLong();
+        brand = objectInput.readUTF();
+        model = objectInput.readUTF();
+        manufacturingYear = objectInput.readLong();
+        fuelType = objectInput.readUTF();
+        passengers = objectInput.readInt();
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
+
+        objectOutput.writeLong(carId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
+
+        if (userName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(userName);
+        }
+
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+        objectOutput.writeInt(status);
+        objectOutput.writeLong(statusByUserId);
+
+        if (statusByUserName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(statusByUserName);
+        }
+
+        objectOutput.writeLong(statusDate);
+
+        if (brand == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(brand);
+        }
+
+        if (model == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(model);
+        }
+
+        objectOutput.writeLong(manufacturingYear);
+
+        if (fuelType == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(fuelType);
+        }
+
+        objectOutput.writeInt(passengers);
     }
 }

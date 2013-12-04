@@ -2,6 +2,8 @@ package com.rental.car.model;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.lar.StagedModelType;
+import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.BaseModel;
@@ -9,10 +11,11 @@ import com.liferay.portal.model.impl.BaseModelImpl;
 import com.liferay.portal.util.PortalUtil;
 
 import com.rental.car.service.CarLocalServiceUtil;
+import com.rental.car.service.ClpSerializer;
 
 import java.io.Serializable;
 
-import java.lang.reflect.Proxy;
+import java.lang.reflect.Method;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -44,26 +47,32 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
     public CarClp() {
     }
 
+    @Override
     public Class<?> getModelClass() {
         return Car.class;
     }
 
+    @Override
     public String getModelClassName() {
         return Car.class.getName();
     }
 
+    @Override
     public long getPrimaryKey() {
         return _carId;
     }
 
+    @Override
     public void setPrimaryKey(long primaryKey) {
         setCarId(primaryKey);
     }
 
+    @Override
     public Serializable getPrimaryKeyObj() {
-        return new Long(_carId);
+        return _carId;
     }
 
+    @Override
     public void setPrimaryKeyObj(Serializable primaryKeyObj) {
         setPrimaryKey(((Long) primaryKeyObj).longValue());
     }
@@ -198,166 +207,418 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
         }
     }
 
+    @Override
     public String getUuid() {
         return _uuid;
     }
 
+    @Override
     public void setUuid(String uuid) {
         _uuid = uuid;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setUuid", String.class);
+
+                method.invoke(_carRemoteModel, uuid);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getCarId() {
         return _carId;
     }
 
+    @Override
     public void setCarId(long carId) {
         _carId = carId;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setCarId", long.class);
+
+                method.invoke(_carRemoteModel, carId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getGroupId() {
         return _groupId;
     }
 
+    @Override
     public void setGroupId(long groupId) {
         _groupId = groupId;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setGroupId", long.class);
+
+                method.invoke(_carRemoteModel, groupId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getCompanyId() {
         return _companyId;
     }
 
+    @Override
     public void setCompanyId(long companyId) {
         _companyId = companyId;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setCompanyId", long.class);
+
+                method.invoke(_carRemoteModel, companyId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getUserId() {
         return _userId;
     }
 
+    @Override
     public void setUserId(long userId) {
         _userId = userId;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setUserId", long.class);
+
+                method.invoke(_carRemoteModel, userId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public String getUserUuid() throws SystemException {
         return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
     }
 
+    @Override
     public void setUserUuid(String userUuid) {
         _userUuid = userUuid;
     }
 
+    @Override
     public String getUserName() {
         return _userName;
     }
 
+    @Override
     public void setUserName(String userName) {
         _userName = userName;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setUserName", String.class);
+
+                method.invoke(_carRemoteModel, userName);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public Date getCreateDate() {
         return _createDate;
     }
 
+    @Override
     public void setCreateDate(Date createDate) {
         _createDate = createDate;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setCreateDate", Date.class);
+
+                method.invoke(_carRemoteModel, createDate);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public Date getModifiedDate() {
         return _modifiedDate;
     }
 
+    @Override
     public void setModifiedDate(Date modifiedDate) {
         _modifiedDate = modifiedDate;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setModifiedDate", Date.class);
+
+                method.invoke(_carRemoteModel, modifiedDate);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public int getStatus() {
         return _status;
     }
 
+    @Override
     public void setStatus(int status) {
         _status = status;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setStatus", int.class);
+
+                method.invoke(_carRemoteModel, status);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getStatusByUserId() {
         return _statusByUserId;
     }
 
+    @Override
     public void setStatusByUserId(long statusByUserId) {
         _statusByUserId = statusByUserId;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setStatusByUserId", long.class);
+
+                method.invoke(_carRemoteModel, statusByUserId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public String getStatusByUserUuid() throws SystemException {
         return PortalUtil.getUserValue(getStatusByUserId(), "uuid",
             _statusByUserUuid);
     }
 
+    @Override
     public void setStatusByUserUuid(String statusByUserUuid) {
         _statusByUserUuid = statusByUserUuid;
     }
 
+    @Override
     public String getStatusByUserName() {
         return _statusByUserName;
     }
 
+    @Override
     public void setStatusByUserName(String statusByUserName) {
         _statusByUserName = statusByUserName;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setStatusByUserName",
+                        String.class);
+
+                method.invoke(_carRemoteModel, statusByUserName);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public Date getStatusDate() {
         return _statusDate;
     }
 
+    @Override
     public void setStatusDate(Date statusDate) {
         _statusDate = statusDate;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setStatusDate", Date.class);
+
+                method.invoke(_carRemoteModel, statusDate);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public String getBrand() {
         return _brand;
     }
 
+    @Override
     public void setBrand(String brand) {
         _brand = brand;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setBrand", String.class);
+
+                method.invoke(_carRemoteModel, brand);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public String getModel() {
         return _model;
     }
 
+    @Override
     public void setModel(String model) {
         _model = model;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setModel", String.class);
+
+                method.invoke(_carRemoteModel, model);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public Date getManufacturingYear() {
         return _manufacturingYear;
     }
 
+    @Override
     public void setManufacturingYear(Date manufacturingYear) {
         _manufacturingYear = manufacturingYear;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setManufacturingYear",
+                        Date.class);
+
+                method.invoke(_carRemoteModel, manufacturingYear);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public String getFuelType() {
         return _fuelType;
     }
 
+    @Override
     public void setFuelType(String fuelType) {
         _fuelType = fuelType;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setFuelType", String.class);
+
+                method.invoke(_carRemoteModel, fuelType);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public int getPassengers() {
         return _passengers;
     }
 
+    @Override
     public void setPassengers(int passengers) {
         _passengers = passengers;
+
+        if (_carRemoteModel != null) {
+            try {
+                Class<?> clazz = _carRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setPassengers", int.class);
+
+                method.invoke(_carRemoteModel, passengers);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
+    }
+
+    @Override
+    public StagedModelType getStagedModelType() {
+        return new StagedModelType(PortalUtil.getClassNameId(
+                Car.class.getName()));
     }
 
     /**
-     * @deprecated {@link #isApproved}
+     * @deprecated As of 6.1.0, replaced by {@link #isApproved}
      */
+    @Override
     public boolean getApproved() {
         return isApproved();
     }
 
+    @Override
     public boolean isApproved() {
         if (getStatus() == WorkflowConstants.STATUS_APPROVED) {
             return true;
@@ -366,6 +627,7 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
         }
     }
 
+    @Override
     public boolean isDenied() {
         if (getStatus() == WorkflowConstants.STATUS_DENIED) {
             return true;
@@ -374,6 +636,7 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
         }
     }
 
+    @Override
     public boolean isDraft() {
         if (getStatus() == WorkflowConstants.STATUS_DRAFT) {
             return true;
@@ -382,6 +645,7 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
         }
     }
 
+    @Override
     public boolean isExpired() {
         if (getStatus() == WorkflowConstants.STATUS_EXPIRED) {
             return true;
@@ -390,6 +654,7 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
         }
     }
 
+    @Override
     public boolean isInactive() {
         if (getStatus() == WorkflowConstants.STATUS_INACTIVE) {
             return true;
@@ -398,6 +663,7 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
         }
     }
 
+    @Override
     public boolean isIncomplete() {
         if (getStatus() == WorkflowConstants.STATUS_INCOMPLETE) {
             return true;
@@ -406,6 +672,7 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
         }
     }
 
+    @Override
     public boolean isPending() {
         if (getStatus() == WorkflowConstants.STATUS_PENDING) {
             return true;
@@ -414,6 +681,7 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
         }
     }
 
+    @Override
     public boolean isScheduled() {
         if (getStatus() == WorkflowConstants.STATUS_SCHEDULED) {
             return true;
@@ -430,6 +698,47 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
         _carRemoteModel = carRemoteModel;
     }
 
+    public Object invokeOnRemoteModel(String methodName,
+        Class<?>[] parameterTypes, Object[] parameterValues)
+        throws Exception {
+        Object[] remoteParameterValues = new Object[parameterValues.length];
+
+        for (int i = 0; i < parameterValues.length; i++) {
+            if (parameterValues[i] != null) {
+                remoteParameterValues[i] = ClpSerializer.translateInput(parameterValues[i]);
+            }
+        }
+
+        Class<?> remoteModelClass = _carRemoteModel.getClass();
+
+        ClassLoader remoteModelClassLoader = remoteModelClass.getClassLoader();
+
+        Class<?>[] remoteParameterTypes = new Class[parameterTypes.length];
+
+        for (int i = 0; i < parameterTypes.length; i++) {
+            if (parameterTypes[i].isPrimitive()) {
+                remoteParameterTypes[i] = parameterTypes[i];
+            } else {
+                String parameterTypeName = parameterTypes[i].getName();
+
+                remoteParameterTypes[i] = remoteModelClassLoader.loadClass(parameterTypeName);
+            }
+        }
+
+        Method method = remoteModelClass.getMethod(methodName,
+                remoteParameterTypes);
+
+        Object returnValue = method.invoke(_carRemoteModel,
+                remoteParameterValues);
+
+        if (returnValue != null) {
+            returnValue = ClpSerializer.translateOutput(returnValue);
+        }
+
+        return returnValue;
+    }
+
+    @Override
     public void persist() throws SystemException {
         if (this.isNew()) {
             CarLocalServiceUtil.addCar(this);
@@ -440,7 +749,7 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
 
     @Override
     public Car toEscapedModel() {
-        return (Car) Proxy.newProxyInstance(Car.class.getClassLoader(),
+        return (Car) ProxyUtil.newProxyInstance(Car.class.getClassLoader(),
             new Class[] { Car.class }, new AutoEscapeBeanHandler(this));
     }
 
@@ -469,6 +778,7 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
         return clone;
     }
 
+    @Override
     public int compareTo(Car car) {
         int value = 0;
 
@@ -489,17 +799,15 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof CarClp)) {
             return false;
         }
 
-        CarClp car = null;
-
-        try {
-            car = (CarClp) obj;
-        } catch (ClassCastException cce) {
-            return false;
-        }
+        CarClp car = (CarClp) obj;
 
         long primaryKey = car.getPrimaryKey();
 
@@ -558,6 +866,7 @@ public class CarClp extends BaseModelImpl<Car> implements Car {
         return sb.toString();
     }
 
+    @Override
     public String toXmlString() {
         StringBundler sb = new StringBundler(55);
 

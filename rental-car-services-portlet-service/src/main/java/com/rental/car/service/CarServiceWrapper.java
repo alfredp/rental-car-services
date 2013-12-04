@@ -3,12 +3,10 @@ package com.rental.car.service;
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
- * <p>
- * This class is a wrapper for {@link CarService}.
- * </p>
+ * Provides a wrapper for {@link CarService}.
  *
- * @author    Brian Wing Shun Chan
- * @see       CarService
+ * @author Brian Wing Shun Chan
+ * @see CarService
  * @generated
  */
 public class CarServiceWrapper implements CarService,
@@ -24,6 +22,7 @@ public class CarServiceWrapper implements CarService,
     *
     * @return the Spring bean ID for this bean
     */
+    @Override
     public java.lang.String getBeanIdentifier() {
         return _carService.getBeanIdentifier();
     }
@@ -33,10 +32,12 @@ public class CarServiceWrapper implements CarService,
     *
     * @param beanIdentifier the Spring bean ID for this bean
     */
+    @Override
     public void setBeanIdentifier(java.lang.String beanIdentifier) {
         _carService.setBeanIdentifier(beanIdentifier);
     }
 
+    @Override
     public java.lang.Object invokeMethod(java.lang.String name,
         java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable {
@@ -44,23 +45,25 @@ public class CarServiceWrapper implements CarService,
     }
 
     /**
-     * @deprecated Renamed to {@link #getWrappedService}
+     * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
      */
     public CarService getWrappedCarService() {
         return _carService;
     }
 
     /**
-     * @deprecated Renamed to {@link #setWrappedService}
+     * @deprecated As of 6.1.0, replaced by {@link #setWrappedService}
      */
     public void setWrappedCarService(CarService carService) {
         _carService = carService;
     }
 
+    @Override
     public CarService getWrappedService() {
         return _carService;
     }
 
+    @Override
     public void setWrappedService(CarService carService) {
         _carService = carService;
     }

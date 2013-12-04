@@ -1,5 +1,7 @@
 package com.rental.car.model;
 
+import com.liferay.portal.kernel.lar.StagedModelType;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
 import java.util.Date;
@@ -11,8 +13,8 @@ import java.util.Map;
  * This class is a wrapper for {@link Car}.
  * </p>
  *
- * @author    Brian Wing Shun Chan
- * @see       Car
+ * @author Brian Wing Shun Chan
+ * @see Car
  * @generated
  */
 public class CarWrapper implements Car, ModelWrapper<Car> {
@@ -22,14 +24,17 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
         _car = car;
     }
 
+    @Override
     public Class<?> getModelClass() {
         return Car.class;
     }
 
+    @Override
     public String getModelClassName() {
         return Car.class.getName();
     }
 
+    @Override
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
@@ -54,6 +59,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
         return attributes;
     }
 
+    @Override
     public void setModelAttributes(Map<String, Object> attributes) {
         String uuid = (String) attributes.get("uuid");
 
@@ -163,6 +169,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the primary key of this car
     */
+    @Override
     public long getPrimaryKey() {
         return _car.getPrimaryKey();
     }
@@ -172,6 +179,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param primaryKey the primary key of this car
     */
+    @Override
     public void setPrimaryKey(long primaryKey) {
         _car.setPrimaryKey(primaryKey);
     }
@@ -181,6 +189,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the uuid of this car
     */
+    @Override
     public java.lang.String getUuid() {
         return _car.getUuid();
     }
@@ -190,6 +199,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param uuid the uuid of this car
     */
+    @Override
     public void setUuid(java.lang.String uuid) {
         _car.setUuid(uuid);
     }
@@ -199,6 +209,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the car ID of this car
     */
+    @Override
     public long getCarId() {
         return _car.getCarId();
     }
@@ -208,6 +219,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param carId the car ID of this car
     */
+    @Override
     public void setCarId(long carId) {
         _car.setCarId(carId);
     }
@@ -217,6 +229,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the group ID of this car
     */
+    @Override
     public long getGroupId() {
         return _car.getGroupId();
     }
@@ -226,6 +239,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param groupId the group ID of this car
     */
+    @Override
     public void setGroupId(long groupId) {
         _car.setGroupId(groupId);
     }
@@ -235,6 +249,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the company ID of this car
     */
+    @Override
     public long getCompanyId() {
         return _car.getCompanyId();
     }
@@ -244,6 +259,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param companyId the company ID of this car
     */
+    @Override
     public void setCompanyId(long companyId) {
         _car.setCompanyId(companyId);
     }
@@ -253,6 +269,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the user ID of this car
     */
+    @Override
     public long getUserId() {
         return _car.getUserId();
     }
@@ -262,6 +279,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param userId the user ID of this car
     */
+    @Override
     public void setUserId(long userId) {
         _car.setUserId(userId);
     }
@@ -272,6 +290,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     * @return the user uuid of this car
     * @throws SystemException if a system exception occurred
     */
+    @Override
     public java.lang.String getUserUuid()
         throws com.liferay.portal.kernel.exception.SystemException {
         return _car.getUserUuid();
@@ -282,6 +301,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param userUuid the user uuid of this car
     */
+    @Override
     public void setUserUuid(java.lang.String userUuid) {
         _car.setUserUuid(userUuid);
     }
@@ -291,6 +311,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the user name of this car
     */
+    @Override
     public java.lang.String getUserName() {
         return _car.getUserName();
     }
@@ -300,6 +321,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param userName the user name of this car
     */
+    @Override
     public void setUserName(java.lang.String userName) {
         _car.setUserName(userName);
     }
@@ -309,6 +331,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the create date of this car
     */
+    @Override
     public java.util.Date getCreateDate() {
         return _car.getCreateDate();
     }
@@ -318,6 +341,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param createDate the create date of this car
     */
+    @Override
     public void setCreateDate(java.util.Date createDate) {
         _car.setCreateDate(createDate);
     }
@@ -327,6 +351,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the modified date of this car
     */
+    @Override
     public java.util.Date getModifiedDate() {
         return _car.getModifiedDate();
     }
@@ -336,6 +361,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param modifiedDate the modified date of this car
     */
+    @Override
     public void setModifiedDate(java.util.Date modifiedDate) {
         _car.setModifiedDate(modifiedDate);
     }
@@ -345,6 +371,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the status of this car
     */
+    @Override
     public int getStatus() {
         return _car.getStatus();
     }
@@ -354,6 +381,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param status the status of this car
     */
+    @Override
     public void setStatus(int status) {
         _car.setStatus(status);
     }
@@ -363,6 +391,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the status by user ID of this car
     */
+    @Override
     public long getStatusByUserId() {
         return _car.getStatusByUserId();
     }
@@ -372,6 +401,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param statusByUserId the status by user ID of this car
     */
+    @Override
     public void setStatusByUserId(long statusByUserId) {
         _car.setStatusByUserId(statusByUserId);
     }
@@ -382,6 +412,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     * @return the status by user uuid of this car
     * @throws SystemException if a system exception occurred
     */
+    @Override
     public java.lang.String getStatusByUserUuid()
         throws com.liferay.portal.kernel.exception.SystemException {
         return _car.getStatusByUserUuid();
@@ -392,6 +423,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param statusByUserUuid the status by user uuid of this car
     */
+    @Override
     public void setStatusByUserUuid(java.lang.String statusByUserUuid) {
         _car.setStatusByUserUuid(statusByUserUuid);
     }
@@ -401,6 +433,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the status by user name of this car
     */
+    @Override
     public java.lang.String getStatusByUserName() {
         return _car.getStatusByUserName();
     }
@@ -410,6 +443,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param statusByUserName the status by user name of this car
     */
+    @Override
     public void setStatusByUserName(java.lang.String statusByUserName) {
         _car.setStatusByUserName(statusByUserName);
     }
@@ -419,6 +453,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the status date of this car
     */
+    @Override
     public java.util.Date getStatusDate() {
         return _car.getStatusDate();
     }
@@ -428,6 +463,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param statusDate the status date of this car
     */
+    @Override
     public void setStatusDate(java.util.Date statusDate) {
         _car.setStatusDate(statusDate);
     }
@@ -437,6 +473,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the brand of this car
     */
+    @Override
     public java.lang.String getBrand() {
         return _car.getBrand();
     }
@@ -446,6 +483,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param brand the brand of this car
     */
+    @Override
     public void setBrand(java.lang.String brand) {
         _car.setBrand(brand);
     }
@@ -455,6 +493,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the model of this car
     */
+    @Override
     public java.lang.String getModel() {
         return _car.getModel();
     }
@@ -464,6 +503,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param model the model of this car
     */
+    @Override
     public void setModel(java.lang.String model) {
         _car.setModel(model);
     }
@@ -473,6 +513,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the manufacturing year of this car
     */
+    @Override
     public java.util.Date getManufacturingYear() {
         return _car.getManufacturingYear();
     }
@@ -482,6 +523,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param manufacturingYear the manufacturing year of this car
     */
+    @Override
     public void setManufacturingYear(java.util.Date manufacturingYear) {
         _car.setManufacturingYear(manufacturingYear);
     }
@@ -491,6 +533,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the fuel type of this car
     */
+    @Override
     public java.lang.String getFuelType() {
         return _car.getFuelType();
     }
@@ -500,6 +543,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param fuelType the fuel type of this car
     */
+    @Override
     public void setFuelType(java.lang.String fuelType) {
         _car.setFuelType(fuelType);
     }
@@ -509,6 +553,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return the passengers of this car
     */
+    @Override
     public int getPassengers() {
         return _car.getPassengers();
     }
@@ -518,13 +563,15 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @param passengers the passengers of this car
     */
+    @Override
     public void setPassengers(int passengers) {
         _car.setPassengers(passengers);
     }
 
     /**
-    * @deprecated Renamed to {@link #isApproved()}
+    * @deprecated As of 6.1.0, replaced by {@link #isApproved()}
     */
+    @Override
     public boolean getApproved() {
         return _car.getApproved();
     }
@@ -534,6 +581,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return <code>true</code> if this car is approved; <code>false</code> otherwise
     */
+    @Override
     public boolean isApproved() {
         return _car.isApproved();
     }
@@ -543,6 +591,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return <code>true</code> if this car is denied; <code>false</code> otherwise
     */
+    @Override
     public boolean isDenied() {
         return _car.isDenied();
     }
@@ -552,6 +601,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return <code>true</code> if this car is a draft; <code>false</code> otherwise
     */
+    @Override
     public boolean isDraft() {
         return _car.isDraft();
     }
@@ -561,6 +611,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return <code>true</code> if this car is expired; <code>false</code> otherwise
     */
+    @Override
     public boolean isExpired() {
         return _car.isExpired();
     }
@@ -570,6 +621,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return <code>true</code> if this car is inactive; <code>false</code> otherwise
     */
+    @Override
     public boolean isInactive() {
         return _car.isInactive();
     }
@@ -579,6 +631,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return <code>true</code> if this car is incomplete; <code>false</code> otherwise
     */
+    @Override
     public boolean isIncomplete() {
         return _car.isIncomplete();
     }
@@ -588,6 +641,7 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return <code>true</code> if this car is pending; <code>false</code> otherwise
     */
+    @Override
     public boolean isPending() {
         return _car.isPending();
     }
@@ -597,42 +651,64 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
     *
     * @return <code>true</code> if this car is scheduled; <code>false</code> otherwise
     */
+    @Override
     public boolean isScheduled() {
         return _car.isScheduled();
     }
 
+    @Override
     public boolean isNew() {
         return _car.isNew();
     }
 
+    @Override
     public void setNew(boolean n) {
         _car.setNew(n);
     }
 
+    @Override
     public boolean isCachedModel() {
         return _car.isCachedModel();
     }
 
+    @Override
     public void setCachedModel(boolean cachedModel) {
         _car.setCachedModel(cachedModel);
     }
 
+    @Override
     public boolean isEscapedModel() {
         return _car.isEscapedModel();
     }
 
+    @Override
     public java.io.Serializable getPrimaryKeyObj() {
         return _car.getPrimaryKeyObj();
     }
 
+    @Override
     public void setPrimaryKeyObj(java.io.Serializable primaryKeyObj) {
         _car.setPrimaryKeyObj(primaryKeyObj);
     }
 
+    @Override
     public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
         return _car.getExpandoBridge();
     }
 
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portal.model.BaseModel<?> baseModel) {
+        _car.setExpandoBridgeAttributes(baseModel);
+    }
+
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portlet.expando.model.ExpandoBridge expandoBridge) {
+        _car.setExpandoBridgeAttributes(expandoBridge);
+    }
+
+    @Override
     public void setExpandoBridgeAttributes(
         com.liferay.portal.service.ServiceContext serviceContext) {
         _car.setExpandoBridgeAttributes(serviceContext);
@@ -643,7 +719,8 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
         return new CarWrapper((Car) _car.clone());
     }
 
-    public int compareTo(Car car) {
+    @Override
+    public int compareTo(com.rental.car.model.Car car) {
         return _car.compareTo(car);
     }
 
@@ -652,12 +729,19 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
         return _car.hashCode();
     }
 
-    public com.liferay.portal.model.CacheModel<Car> toCacheModel() {
+    @Override
+    public com.liferay.portal.model.CacheModel<com.rental.car.model.Car> toCacheModel() {
         return _car.toCacheModel();
     }
 
-    public Car toEscapedModel() {
+    @Override
+    public com.rental.car.model.Car toEscapedModel() {
         return new CarWrapper(_car.toEscapedModel());
+    }
+
+    @Override
+    public com.rental.car.model.Car toUnescapedModel() {
+        return new CarWrapper(_car.toUnescapedModel());
     }
 
     @Override
@@ -665,26 +749,54 @@ public class CarWrapper implements Car, ModelWrapper<Car> {
         return _car.toString();
     }
 
+    @Override
     public java.lang.String toXmlString() {
         return _car.toXmlString();
     }
 
+    @Override
     public void persist()
         throws com.liferay.portal.kernel.exception.SystemException {
         _car.persist();
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof CarWrapper)) {
+            return false;
+        }
+
+        CarWrapper carWrapper = (CarWrapper) obj;
+
+        if (Validator.equals(_car, carWrapper._car)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public StagedModelType getStagedModelType() {
+        return _car.getStagedModelType();
+    }
+
     /**
-     * @deprecated Renamed to {@link #getWrappedModel}
+     * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
      */
     public Car getWrappedCar() {
         return _car;
     }
 
+    @Override
     public Car getWrappedModel() {
         return _car;
     }
 
+    @Override
     public void resetOriginalValues() {
         _car.resetOriginalValues();
     }

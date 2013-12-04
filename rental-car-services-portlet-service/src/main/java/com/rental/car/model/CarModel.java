@@ -4,7 +4,7 @@ import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
-import com.liferay.portal.model.GroupedModel;
+import com.liferay.portal.model.StagedGroupedModel;
 import com.liferay.portal.model.WorkflowedModel;
 import com.liferay.portal.service.ServiceContext;
 
@@ -27,7 +27,8 @@ import java.util.Date;
  * @see com.rental.car.model.impl.CarModelImpl
  * @generated
  */
-public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel {
+public interface CarModel extends BaseModel<Car>, StagedGroupedModel,
+    WorkflowedModel {
     /*
      * NOTE FOR DEVELOPERS:
      *
@@ -54,6 +55,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      * @return the uuid of this car
      */
     @AutoEscape
+    @Override
     public String getUuid();
 
     /**
@@ -61,6 +63,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @param uuid the uuid of this car
      */
+    @Override
     public void setUuid(String uuid);
 
     /**
@@ -82,6 +85,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return the group ID of this car
      */
+    @Override
     public long getGroupId();
 
     /**
@@ -89,6 +93,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @param groupId the group ID of this car
      */
+    @Override
     public void setGroupId(long groupId);
 
     /**
@@ -96,6 +101,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return the company ID of this car
      */
+    @Override
     public long getCompanyId();
 
     /**
@@ -103,6 +109,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @param companyId the company ID of this car
      */
+    @Override
     public void setCompanyId(long companyId);
 
     /**
@@ -110,6 +117,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return the user ID of this car
      */
+    @Override
     public long getUserId();
 
     /**
@@ -117,6 +125,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @param userId the user ID of this car
      */
+    @Override
     public void setUserId(long userId);
 
     /**
@@ -125,6 +134,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      * @return the user uuid of this car
      * @throws SystemException if a system exception occurred
      */
+    @Override
     public String getUserUuid() throws SystemException;
 
     /**
@@ -132,6 +142,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @param userUuid the user uuid of this car
      */
+    @Override
     public void setUserUuid(String userUuid);
 
     /**
@@ -140,6 +151,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      * @return the user name of this car
      */
     @AutoEscape
+    @Override
     public String getUserName();
 
     /**
@@ -147,6 +159,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @param userName the user name of this car
      */
+    @Override
     public void setUserName(String userName);
 
     /**
@@ -154,6 +167,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return the create date of this car
      */
+    @Override
     public Date getCreateDate();
 
     /**
@@ -161,6 +175,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @param createDate the create date of this car
      */
+    @Override
     public void setCreateDate(Date createDate);
 
     /**
@@ -168,6 +183,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return the modified date of this car
      */
+    @Override
     public Date getModifiedDate();
 
     /**
@@ -175,6 +191,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @param modifiedDate the modified date of this car
      */
+    @Override
     public void setModifiedDate(Date modifiedDate);
 
     /**
@@ -182,6 +199,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return the status of this car
      */
+    @Override
     public int getStatus();
 
     /**
@@ -189,6 +207,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @param status the status of this car
      */
+    @Override
     public void setStatus(int status);
 
     /**
@@ -196,6 +215,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return the status by user ID of this car
      */
+    @Override
     public long getStatusByUserId();
 
     /**
@@ -203,6 +223,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @param statusByUserId the status by user ID of this car
      */
+    @Override
     public void setStatusByUserId(long statusByUserId);
 
     /**
@@ -211,6 +232,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      * @return the status by user uuid of this car
      * @throws SystemException if a system exception occurred
      */
+    @Override
     public String getStatusByUserUuid() throws SystemException;
 
     /**
@@ -218,6 +240,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @param statusByUserUuid the status by user uuid of this car
      */
+    @Override
     public void setStatusByUserUuid(String statusByUserUuid);
 
     /**
@@ -226,6 +249,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      * @return the status by user name of this car
      */
     @AutoEscape
+    @Override
     public String getStatusByUserName();
 
     /**
@@ -233,6 +257,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @param statusByUserName the status by user name of this car
      */
+    @Override
     public void setStatusByUserName(String statusByUserName);
 
     /**
@@ -240,6 +265,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return the status date of this car
      */
+    @Override
     public Date getStatusDate();
 
     /**
@@ -247,6 +273,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @param statusDate the status date of this car
      */
+    @Override
     public void setStatusDate(Date statusDate);
 
     /**
@@ -323,8 +350,9 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
     public void setPassengers(int passengers);
 
     /**
-     * @deprecated Renamed to {@link #isApproved()}
+     * @deprecated As of 6.1.0, replaced by {@link #isApproved()}
      */
+    @Override
     public boolean getApproved();
 
     /**
@@ -332,6 +360,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return <code>true</code> if this car is approved; <code>false</code> otherwise
      */
+    @Override
     public boolean isApproved();
 
     /**
@@ -339,6 +368,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return <code>true</code> if this car is denied; <code>false</code> otherwise
      */
+    @Override
     public boolean isDenied();
 
     /**
@@ -346,6 +376,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return <code>true</code> if this car is a draft; <code>false</code> otherwise
      */
+    @Override
     public boolean isDraft();
 
     /**
@@ -353,6 +384,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return <code>true</code> if this car is expired; <code>false</code> otherwise
      */
+    @Override
     public boolean isExpired();
 
     /**
@@ -360,6 +392,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return <code>true</code> if this car is inactive; <code>false</code> otherwise
      */
+    @Override
     public boolean isInactive();
 
     /**
@@ -367,6 +400,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return <code>true</code> if this car is incomplete; <code>false</code> otherwise
      */
+    @Override
     public boolean isIncomplete();
 
     /**
@@ -374,6 +408,7 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return <code>true</code> if this car is pending; <code>false</code> otherwise
      */
+    @Override
     public boolean isPending();
 
     /**
@@ -381,37 +416,63 @@ public interface CarModel extends BaseModel<Car>, GroupedModel, WorkflowedModel 
      *
      * @return <code>true</code> if this car is scheduled; <code>false</code> otherwise
      */
+    @Override
     public boolean isScheduled();
 
+    @Override
     public boolean isNew();
 
+    @Override
     public void setNew(boolean n);
 
+    @Override
     public boolean isCachedModel();
 
+    @Override
     public void setCachedModel(boolean cachedModel);
 
+    @Override
     public boolean isEscapedModel();
 
+    @Override
     public Serializable getPrimaryKeyObj();
 
+    @Override
     public void setPrimaryKeyObj(Serializable primaryKeyObj);
 
+    @Override
     public ExpandoBridge getExpandoBridge();
 
+    @Override
+    public void setExpandoBridgeAttributes(BaseModel<?> baseModel);
+
+    @Override
+    public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge);
+
+    @Override
     public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
+    @Override
     public Object clone();
 
+    @Override
     public int compareTo(Car car);
 
+    @Override
     public int hashCode();
 
+    @Override
     public CacheModel<Car> toCacheModel();
 
+    @Override
     public Car toEscapedModel();
 
+    @Override
+    public Car toUnescapedModel();
+
+    @Override
     public String toString();
 
+    @Override
     public String toXmlString();
 }

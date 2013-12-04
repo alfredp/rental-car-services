@@ -3,6 +3,7 @@ package com.rental.car.model.impl;
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSON;
+import com.liferay.portal.kernel.lar.StagedModelType;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -87,15 +88,14 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
                 "value.object.column.bitmask.enabled.com.rental.car.model.Car"),
             true);
     public static long BRAND_COLUMN_BITMASK = 1L;
-    public static long GROUPID_COLUMN_BITMASK = 2L;
-    public static long MODEL_COLUMN_BITMASK = 4L;
-    public static long UUID_COLUMN_BITMASK = 8L;
+    public static long COMPANYID_COLUMN_BITMASK = 2L;
+    public static long GROUPID_COLUMN_BITMASK = 4L;
+    public static long MODEL_COLUMN_BITMASK = 8L;
+    public static long UUID_COLUMN_BITMASK = 16L;
     public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
                 "lock.expiration.time.com.rental.car.model.Car"));
     private static ClassLoader _classLoader = Car.class.getClassLoader();
-    private static Class<?>[] _escapedModelProxyInterfaces = new Class[] {
-            Car.class
-        };
+    private static Class<?>[] _escapedModelInterfaces = new Class[] { Car.class };
     private String _uuid;
     private String _originalUuid;
     private long _carId;
@@ -103,6 +103,8 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
     private long _originalGroupId;
     private boolean _setOriginalGroupId;
     private long _companyId;
+    private long _originalCompanyId;
+    private boolean _setOriginalCompanyId;
     private long _userId;
     private String _userUuid;
     private String _userName;
@@ -121,7 +123,7 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
     private String _fuelType;
     private int _passengers;
     private long _columnBitmask;
-    private Car _escapedModelProxy;
+    private Car _escapedModel;
 
     public CarModelImpl() {
     }
@@ -180,26 +182,32 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         return models;
     }
 
+    @Override
     public long getPrimaryKey() {
         return _carId;
     }
 
+    @Override
     public void setPrimaryKey(long primaryKey) {
         setCarId(primaryKey);
     }
 
+    @Override
     public Serializable getPrimaryKeyObj() {
-        return new Long(_carId);
+        return _carId;
     }
 
+    @Override
     public void setPrimaryKeyObj(Serializable primaryKeyObj) {
         setPrimaryKey(((Long) primaryKeyObj).longValue());
     }
 
+    @Override
     public Class<?> getModelClass() {
         return Car.class;
     }
 
+    @Override
     public String getModelClassName() {
         return Car.class.getName();
     }
@@ -335,6 +343,7 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
     }
 
     @JSON
+    @Override
     public String getUuid() {
         if (_uuid == null) {
             return StringPool.BLANK;
@@ -343,6 +352,7 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         }
     }
 
+    @Override
     public void setUuid(String uuid) {
         if (_originalUuid == null) {
             _originalUuid = _uuid;
@@ -356,19 +366,23 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
     }
 
     @JSON
+    @Override
     public long getCarId() {
         return _carId;
     }
 
+    @Override
     public void setCarId(long carId) {
         _carId = carId;
     }
 
     @JSON
+    @Override
     public long getGroupId() {
         return _groupId;
     }
 
+    @Override
     public void setGroupId(long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
@@ -386,32 +400,51 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
     }
 
     @JSON
+    @Override
     public long getCompanyId() {
         return _companyId;
     }
 
+    @Override
     public void setCompanyId(long companyId) {
+        _columnBitmask |= COMPANYID_COLUMN_BITMASK;
+
+        if (!_setOriginalCompanyId) {
+            _setOriginalCompanyId = true;
+
+            _originalCompanyId = _companyId;
+        }
+
         _companyId = companyId;
     }
 
+    public long getOriginalCompanyId() {
+        return _originalCompanyId;
+    }
+
     @JSON
+    @Override
     public long getUserId() {
         return _userId;
     }
 
+    @Override
     public void setUserId(long userId) {
         _userId = userId;
     }
 
+    @Override
     public String getUserUuid() throws SystemException {
         return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
     }
 
+    @Override
     public void setUserUuid(String userUuid) {
         _userUuid = userUuid;
     }
 
     @JSON
+    @Override
     public String getUserName() {
         if (_userName == null) {
             return StringPool.BLANK;
@@ -420,56 +453,68 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         }
     }
 
+    @Override
     public void setUserName(String userName) {
         _userName = userName;
     }
 
     @JSON
+    @Override
     public Date getCreateDate() {
         return _createDate;
     }
 
+    @Override
     public void setCreateDate(Date createDate) {
         _createDate = createDate;
     }
 
     @JSON
+    @Override
     public Date getModifiedDate() {
         return _modifiedDate;
     }
 
+    @Override
     public void setModifiedDate(Date modifiedDate) {
         _modifiedDate = modifiedDate;
     }
 
     @JSON
+    @Override
     public int getStatus() {
         return _status;
     }
 
+    @Override
     public void setStatus(int status) {
         _status = status;
     }
 
     @JSON
+    @Override
     public long getStatusByUserId() {
         return _statusByUserId;
     }
 
+    @Override
     public void setStatusByUserId(long statusByUserId) {
         _statusByUserId = statusByUserId;
     }
 
+    @Override
     public String getStatusByUserUuid() throws SystemException {
         return PortalUtil.getUserValue(getStatusByUserId(), "uuid",
             _statusByUserUuid);
     }
 
+    @Override
     public void setStatusByUserUuid(String statusByUserUuid) {
         _statusByUserUuid = statusByUserUuid;
     }
 
     @JSON
+    @Override
     public String getStatusByUserName() {
         if (_statusByUserName == null) {
             return StringPool.BLANK;
@@ -478,20 +523,24 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         }
     }
 
+    @Override
     public void setStatusByUserName(String statusByUserName) {
         _statusByUserName = statusByUserName;
     }
 
     @JSON
+    @Override
     public Date getStatusDate() {
         return _statusDate;
     }
 
+    @Override
     public void setStatusDate(Date statusDate) {
         _statusDate = statusDate;
     }
 
     @JSON
+    @Override
     public String getBrand() {
         if (_brand == null) {
             return StringPool.BLANK;
@@ -500,6 +549,7 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         }
     }
 
+    @Override
     public void setBrand(String brand) {
         _columnBitmask = -1L;
 
@@ -515,6 +565,7 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
     }
 
     @JSON
+    @Override
     public String getModel() {
         if (_model == null) {
             return StringPool.BLANK;
@@ -523,6 +574,7 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         }
     }
 
+    @Override
     public void setModel(String model) {
         _columnBitmask = -1L;
 
@@ -538,15 +590,18 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
     }
 
     @JSON
+    @Override
     public Date getManufacturingYear() {
         return _manufacturingYear;
     }
 
+    @Override
     public void setManufacturingYear(Date manufacturingYear) {
         _manufacturingYear = manufacturingYear;
     }
 
     @JSON
+    @Override
     public String getFuelType() {
         if (_fuelType == null) {
             return StringPool.BLANK;
@@ -555,26 +610,37 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         }
     }
 
+    @Override
     public void setFuelType(String fuelType) {
         _fuelType = fuelType;
     }
 
     @JSON
+    @Override
     public int getPassengers() {
         return _passengers;
     }
 
+    @Override
     public void setPassengers(int passengers) {
         _passengers = passengers;
     }
 
+    @Override
+    public StagedModelType getStagedModelType() {
+        return new StagedModelType(PortalUtil.getClassNameId(
+                Car.class.getName()));
+    }
+
     /**
-     * @deprecated {@link #isApproved}
+     * @deprecated As of 6.1.0, replaced by {@link #isApproved}
      */
+    @Override
     public boolean getApproved() {
         return isApproved();
     }
 
+    @Override
     public boolean isApproved() {
         if (getStatus() == WorkflowConstants.STATUS_APPROVED) {
             return true;
@@ -583,6 +649,7 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         }
     }
 
+    @Override
     public boolean isDenied() {
         if (getStatus() == WorkflowConstants.STATUS_DENIED) {
             return true;
@@ -591,15 +658,16 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         }
     }
 
+    @Override
     public boolean isDraft() {
-        if ((getStatus() == WorkflowConstants.STATUS_DRAFT) ||
-                (getStatus() == WorkflowConstants.STATUS_DRAFT_FROM_APPROVED)) {
+        if (getStatus() == WorkflowConstants.STATUS_DRAFT) {
             return true;
         } else {
             return false;
         }
     }
 
+    @Override
     public boolean isExpired() {
         if (getStatus() == WorkflowConstants.STATUS_EXPIRED) {
             return true;
@@ -608,6 +676,7 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         }
     }
 
+    @Override
     public boolean isInactive() {
         if (getStatus() == WorkflowConstants.STATUS_INACTIVE) {
             return true;
@@ -616,6 +685,7 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         }
     }
 
+    @Override
     public boolean isIncomplete() {
         if (getStatus() == WorkflowConstants.STATUS_INCOMPLETE) {
             return true;
@@ -624,6 +694,7 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         }
     }
 
+    @Override
     public boolean isPending() {
         if (getStatus() == WorkflowConstants.STATUS_PENDING) {
             return true;
@@ -632,6 +703,7 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         }
     }
 
+    @Override
     public boolean isScheduled() {
         if (getStatus() == WorkflowConstants.STATUS_SCHEDULED) {
             return true;
@@ -659,13 +731,12 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
 
     @Override
     public Car toEscapedModel() {
-        if (_escapedModelProxy == null) {
-            _escapedModelProxy = (Car) ProxyUtil.newProxyInstance(_classLoader,
-                    _escapedModelProxyInterfaces,
-                    new AutoEscapeBeanHandler(this));
+        if (_escapedModel == null) {
+            _escapedModel = (Car) ProxyUtil.newProxyInstance(_classLoader,
+                    _escapedModelInterfaces, new AutoEscapeBeanHandler(this));
         }
 
-        return _escapedModelProxy;
+        return _escapedModel;
     }
 
     @Override
@@ -695,6 +766,7 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         return carImpl;
     }
 
+    @Override
     public int compareTo(Car car) {
         int value = 0;
 
@@ -715,17 +787,15 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Car)) {
             return false;
         }
 
-        Car car = null;
-
-        try {
-            car = (Car) obj;
-        } catch (ClassCastException cce) {
-            return false;
-        }
+        Car car = (Car) obj;
 
         long primaryKey = car.getPrimaryKey();
 
@@ -750,6 +820,10 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         carModelImpl._originalGroupId = carModelImpl._groupId;
 
         carModelImpl._setOriginalGroupId = false;
+
+        carModelImpl._originalCompanyId = carModelImpl._companyId;
+
+        carModelImpl._setOriginalCompanyId = false;
 
         carModelImpl._originalBrand = carModelImpl._brand;
 
@@ -902,6 +976,7 @@ public class CarModelImpl extends BaseModelImpl<Car> implements CarModel {
         return sb.toString();
     }
 
+    @Override
     public String toXmlString() {
         StringBundler sb = new StringBundler(55);
 

@@ -4,33 +4,38 @@ import com.rental.car.service.CarServiceUtil;
 
 import java.util.Arrays;
 
-
+/**
+ * @author Brian Wing Shun Chan
+ * @generated
+ */
 public class CarServiceClpInvoker {
-    private String _methodName32;
-    private String[] _methodParameterTypes32;
-    private String _methodName33;
-    private String[] _methodParameterTypes33;
+    private String _methodName28;
+    private String[] _methodParameterTypes28;
+    private String _methodName29;
+    private String[] _methodParameterTypes29;
 
     public CarServiceClpInvoker() {
-        _methodName32 = "getBeanIdentifier";
+        _methodName28 = "getBeanIdentifier";
 
-        _methodParameterTypes32 = new String[] {  };
+        _methodParameterTypes28 = new String[] {  };
 
-        _methodName33 = "setBeanIdentifier";
+        _methodName29 = "setBeanIdentifier";
 
-        _methodParameterTypes33 = new String[] { "java.lang.String" };
+        _methodParameterTypes29 = new String[] { "java.lang.String" };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
         Object[] arguments) throws Throwable {
-        if (_methodName32.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes32, parameterTypes)) {
+        if (_methodName28.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes28, parameterTypes)) {
             return CarServiceUtil.getBeanIdentifier();
         }
 
-        if (_methodName33.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes33, parameterTypes)) {
+        if (_methodName29.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes29, parameterTypes)) {
             CarServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
+
+            return null;
         }
 
         throw new UnsupportedOperationException();
